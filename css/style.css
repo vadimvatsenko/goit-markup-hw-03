@@ -1,5 +1,6 @@
-
+/* переменные */
 :root {
+    --bg-team: #F5F4FA;
     --main-text-color: #212121;
     --second-text-color: #757575;
     --hover-focus-color: #2196F3;
@@ -9,8 +10,19 @@
     --footer-contact-color: rgba(255, 255, 255, 0.6);
     --portfolio-filter-bg-color: #F5F4FA;
     --header-border-color: #ECECEC;
-    
+    --header-border: 1px solid #ECECEC;
+    --main-button-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    --team-card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+                        0px 1px 1px rgba(0, 0, 0, 0.14),
+                        0px 2px 1px rgba(0, 0, 0, 0.2);
+    --porfolio-filter-btn-act:  0px 3px 1px rgba(0, 0, 0, 0.1),
+                                0px 1px 2px rgba(0, 0, 0, 0.08),
+                                0px 2px 2px rgba(0, 0, 0, 0.12);
+    --project-border-style: solid #EEEEEE;
 }
+/* * {
+    outline: 1px solid tomato;
+} */
 /* Повторяющие стили на странице */
 body {
     margin: 0; /* - убирает рамку вокруг body */
@@ -31,6 +43,12 @@ ul {
     padding: 0;
     list-style: none;
 }
+/* адаптивные растовые картинки, убираем нижние отступы у картинок */
+img {
+    display: block;
+    min-width: 100%;
+    min-height: auto;
+}
 /* глобальный padding для всех секций */
 .section {
     padding-top: 94px;
@@ -47,7 +65,7 @@ ul {
 /* хедер */
 .header {
     background-color: var(--white-tx-bg-color);
-    border-bottom: 1px solid var(--header-border-color);
+    border-bottom: var(--header-border)
 }
 /* обертка для всех блоков в хедере */
 .header-wrapper {
@@ -103,7 +121,7 @@ ul {
 }
 .header-contacts {
     display: flex;
-    margin-left: auto;
+    margin-left: auto; /* - контакты отодвигаем в право  */
 }
 .header-contacts>.header-contact + .header-contact {
     margin-left: 50px;
@@ -120,6 +138,7 @@ ul {
     letter-spacing: 0.02em;
     text-decoration: none;
 }
+
 .header-contact>.email:hover,
 .header-contact>.email:focus,
 .header-contact>.phone:hover,
@@ -130,10 +149,9 @@ ul {
 .banner {
     background-color: var(--footer-bg-color);
     min-height: 600px;
-    text-align: center; /* - если задать это значение, то все элементы внутри секции будут по центру, если дети display: inline-block */
+    text-align: center; /* - если задать это значение, то все элементы внутри секции будут по центру, если их дети display: inline-block */
     padding-top: 200px;
     padding-bottom: 200px;
-    
 }
 /* заголовок баннера */
 .banner-title {
@@ -150,8 +168,9 @@ ul {
     margin-top: 30px;
     padding: 10px 32px;
 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--main-button-shadow);
     border-radius: 4px;
+
     color: var(--white-tx-bg-color);
     background-color: var(--hover-focus-color);
 
@@ -167,32 +186,30 @@ ul {
 .peculiarities-title {
     font-size: 0;
 }
+/* список особенностей */
 .peculiarities-lists {
     display: flex;
 }
 .peculiarities-list {
-    width: calc((100% - 90px) / 4);
+    width: calc((100% - 90px) / 4); /* - три отступа по 30px */
 }
 .peculiarities-list + .peculiarities-list {
     margin-left: 30px;
 }
 
-.peculiarities-list>.subtitle {
+.peculiarities-list>.title {
     font-weight: 700;
     line-height: 1.14;
     text-transform: uppercase
 }
-.peculiarities-list>.descr {
+.peculiarities-list>.subtitle {
     margin-top: 10px;
 
     color: var(--second-text-color);
     
     line-height: 1.71;  
 }
-.peculiarities-lists {
-    display: flex;
-    flex-wrap: wrap;
-}
+/* у секции "Чем Занимаемся" отсутствует padding-top */
 .doing {
     padding-top: 0;
 }
@@ -212,35 +229,32 @@ ul {
 }
 .team {
     min-height: 648px;
-    background-color: #F5F4FA;
+    background-color: var(--bg-team);
 }
 .team-cards {
     display: flex;
     margin-top: 50px;
 }
 .team-card {
-    padding-bottom: 30px;
-
-    background: #FFFFFF;
+    background: var(--white-tx-bg-color);
     
-    
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--team-card-shadow);
     border-radius: 0px 0px 4px 4px;
 }
 .team-cards>.team-card + .team-card {
     margin-left: 30px;
 }
-.card-title {
-    margin-top: 30px;
+.team-cards .card-descr {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.card-descr>.title {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.19;
     text-align: center;
 }
-.card-subtitle{
-    
+.card-descr>.subtitle{
     margin-top: 10px;
     color: var(--second-text-color);
     
@@ -282,8 +296,8 @@ ul {
 .footer-phone:focus {
     color: var(--hover-focus-color)
 }
-
 /* portfolio  */
+/* Главного заголвка Портфолио нет в макете, потому скрыт */
 .portfolio-title {
     font-size: 0;
 }
@@ -292,9 +306,10 @@ ul {
     display: flex;
     justify-content: center;
 }
-.portfolio-filter+.portfolio-filter {
+.portfolio-filter + .portfolio-filter {
     margin-left: 8px;
 }
+/* Фильтр меню кнопок портфолио */
 .filter-button {
     min-width: 73px; /* - минимальная ширина самой маленько кнопки */
     padding: 6px 22px;
@@ -305,7 +320,7 @@ ul {
     line-height: 1.62;
     
     border-radius: 4px;
-    border: 2px solid transparent;/*  - прозрачный цвет бордера */
+    border: none;
 
     cursor: pointer
 }
@@ -314,18 +329,12 @@ ul {
 .filter-button:focus {
     color: var(--white-tx-bg-color);
     background-color: var(--hover-focus-color);
-
-    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
-    0px 1px 2px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
-
-    border: 2px solid var(--hover-focus-color)
+    box-shadow : var(--porfolio-filter-btn-act)
 }
 .project-link {
     text-decoration: none;
 }
-.project-link>.title {
-    margin-top: 20px;
+.project-descr>.title {
     color: var(--main-text-color);
 
     font-weight: 700;
@@ -333,32 +342,35 @@ ul {
     line-height: 2.0;
     letter-spacing: 0.06em;   
 }
-.project-link>.subtitle {
+.project-descr>.subtitle {
     margin-top: 4px;
     color: var(--second-text-color);
 
     font-size: 16px;
     line-height: 1.88;
 }
-
-
-
 /* список проектов */
 .portfolio-projects {
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
+    margin-right: -30px;
+    margin-bottom: -30px;
 }
 /* карточка проекта */
 .portfolio-project {
-    width: calc((100% - 60px) / 3);/*  - 100% ширины родителя(1200-30padding=1170(100%) отнимаем два margin по 30px=60  */
+    width: calc( 100% / 3 - 30px);
     margin-right: 30px;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
+}
+.portfolio-project .project-descr {
+    padding: 20px 24px;
+    border: var(--project-border-style);
+    border-width: 0 1px 1px 1px;
 }
 
-.portfolio-project:nth-child(3n) { /* - каждый третий элемент в ряду */
-    margin-right: 0
-}
-.portfolio-project:nth-last-child(-n + 3)  { /* - последние три элемента из коллекции */
-    margin-bottom: 0;
+/* эксперимент с отзывчивым изображением */
+.portfolio-project .project-img {
+    max-width: 100%;
+    height: auto;
 }
