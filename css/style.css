@@ -20,9 +20,9 @@
                                 0px 2px 2px rgba(0, 0, 0, 0.12);
     --project-border-style: solid #EEEEEE;
 }
-/* * {
+* {
     outline: 1px solid tomato;
-} */
+}
 /* Повторяющие стили на странице */
 body {
     margin: 0; /* - убирает рамку вокруг body */
@@ -168,7 +168,7 @@ img {
     margin-top: 30px;
     padding: 10px 32px;
 
-    box-shadow: var(--main-button-shadow);
+    border: none;
     border-radius: 4px;
 
     color: var(--white-tx-bg-color);
@@ -182,6 +182,11 @@ img {
 
     cursor: pointer;
 }
+.main-button:hover,
+.main-button:focus {
+    box-shadow: var(--main-button-shadow)
+}
+
 /* Заголовок особенности скрыт */
 .peculiarities-title {
     font-size: 0;
@@ -331,6 +336,7 @@ img {
     background-color: var(--hover-focus-color);
     box-shadow : var(--porfolio-filter-btn-act)
 }
+/* убраны подчёркивания */ 
 .project-link {
     text-decoration: none;
 }
