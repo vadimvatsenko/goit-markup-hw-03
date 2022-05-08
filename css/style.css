@@ -21,9 +21,6 @@
     --project-border-style: solid #EEEEEE;
    
 }
-* {
-    outline: 1px solid tomato;
-}
 /* Повторяющие стили на странице */
 body {
     margin: 0; /* - убирает рамку вокруг body */
