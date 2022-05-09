@@ -21,6 +21,9 @@
     --project-border-style: solid #EEEEEE;
    
 }
+/* * {
+    outline: 1px solid tomato;
+} */
 /* Повторяющие стили на странице */
 body {
     margin: 0; /* - убирает рамку вокруг body */
@@ -147,6 +150,8 @@ ul {
 }
 /* заголовок баннера */
 .banner-title {
+    width: 696px;
+    margin: 0 auto;
     color: var(--white-tx-bg-color);
     
     font-weight: 900;
@@ -195,6 +200,7 @@ ul {
 }
 
 .peculiarities-list>.title {
+    font-size: 14px; /* - размер не наследуется от body */
     font-weight: 700;
     line-height: 1.14;
     text-transform: uppercase
@@ -280,21 +286,23 @@ ul {
 .logo-footer {
     color: var(--white-tx-bg-color);
 }
+.footer-address {
+    margin-top: 20px;
+}
 .footer-contact {
     font-style: normal;
 }
+.footer-contact + .footer-contact {
+    margin-top: 9px;
+}
 .footer-addr {
-    margin-top: 20px;
     color: var(--white-tx-bg-color);
 
-    line-height: 1.71;
 }
 .footer-email,
 .footer-phone {
-    margin-top: 9px;
     color: var(--footer-contact-color);
 
-    line-height: 1.71;
     text-decoration: none;
 
     cursor: pointer
